@@ -15,14 +15,7 @@ const baseConfig = {
         test: /\.s[ac]ss$/i,
         use: [
           'style-loader',
-          'css-loader',
-          'sass-loader',
-          {
-            loader: 'sass-resources-loader',
-            options: {
-              resources: ['src/**/*.scss'],
-            },
-          },
+          'css-loader',         
         ],
       },
       {
@@ -40,14 +33,6 @@ const baseConfig = {
           },
         },
       },
-      // {
-      //     test: /\.json$/,
-      //     type: 'json',
-      // },
-      // {
-      //     test: /\.json$/,
-      //     loader: 'file-loader?name=[name].json',
-      // },
     ],
   },
   resolve: {
