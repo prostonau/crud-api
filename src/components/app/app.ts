@@ -2,14 +2,13 @@
 // import { AppView } from '../view/appView';
 
 class App {
-  // controller: AppController;
-
+  version: string;
   constructor() {
-    // this.controller = new AppController();
+    this.version = '1.0.1';
   }
 
   public async start(): Promise<void> {
-    console.log('Start server...');
+    console.log('Start server!...');
   }
 }
 

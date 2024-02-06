@@ -2,10 +2,11 @@
   "name": "crud-api",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.base.config.js",
+  "main": "./src/index.ts",
   "scripts": {
-    "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
-    "build": "webpack --config ./webpack.config.js --env mode=prod",
+    "start:dev": "nodemon",
+    "start:prod": "webpack --mode production",
+    "start:multi": "webpack --config ./webpack.config.js --env mode=prod --cluster=on",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write \"src/**/*.{js,ts}\""
   },
