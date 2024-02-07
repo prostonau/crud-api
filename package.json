@@ -37,7 +37,6 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "dotenv": "^16.4.1",
-    "uuid": "^9.0.1"
+    "dotenv": "^16.4.1"
   }
 }

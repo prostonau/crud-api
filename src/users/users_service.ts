@@ -1,4 +1,3 @@
-import * as uuid from 'uuid';
 import { ErrorText } from '../utils/enum';
 import { NotFoundError, ValidationError } from '../utils/errors';
 import { InsertUser } from './action/insert_user';
@@ -39,7 +38,7 @@ export class UsersService {
   }
 
   validateUserId(id: string) {
-    if (!uuid.validate(id)) {
+    if (this.usersRepository.users.filter((user) => user.id.toString() === id).length === 0) {
       throw new ValidationError(ErrorText.USERID_INVALID);
     }
   }

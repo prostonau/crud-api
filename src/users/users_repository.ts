@@ -1,9 +1,13 @@
-import * as uuid from 'uuid';
 import { EventEmitter } from 'events';
 import { User } from '../types/user';
 
 export class UsersRepository extends EventEmitter {
-  private readonly users: User[] = [];
+  public users: User[] = [];
+
+  private getNewId(): number {
+    if (this.users.length === 0) return 1;
+    return this.users.length++;
+  }
 
   public async find(): Promise<User[]> {
     return this.users;
@@ -16,9 +20,11 @@ export class UsersRepository extends EventEmitter {
   public async create(input: Partial<User>): Promise<User> {
     //console.log('Tuttttttttttttttt!');
     const dummyUser = new User();
-    const user = Object.assign(dummyUser, { id: uuid.v4(), ...input });
+    // console.log('this.getNewId() = ', this.getNewId());
+    const user = Object.assign(dummyUser, { id: this.getNewId(), ...input });
     // console.log('user = ', user);
     this.users.push(user);
+    this.users = this.users.filter((item) => item !== null);
     //console.log('output user = ', user);
     return user;
   }

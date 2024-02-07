@@ -12,7 +12,7 @@ const usersController = new UsersController(usersService);
 export const routes = async function (req: IncomingMessage, res: ServerResponse) {
   res.setHeader('Content-Type', 'application/json');
   const [api, users, id, ...rest] = req.url.split('/').filter(Boolean);
-  console.log('api:', api, 'users:', users, 'id:', id, 'rest:', rest);
+  // console.log('api:', api, 'users:', users, 'id:', id, 'rest:', rest);
 
   const buffers = [];
   for await (const block of req) {
