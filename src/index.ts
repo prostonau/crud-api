@@ -1,5 +1,2 @@
-import App from './components/app/app';
-
-const app = new App();
-
-app.start();
+import { start } from './server';
+start();
