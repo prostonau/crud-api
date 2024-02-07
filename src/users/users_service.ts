@@ -1,5 +1,5 @@
 import * as uuid from 'uuid';
-import { ERR_USERID_INVALID, ERR_USER_NOT_FOUND } from '../utils/enum';
+import { ErrorText } from '../utils/enum';
 import { NotFoundError, ValidationError } from '../utils/errors';
 import { InsertUser } from './action/insert_user';
 import { UpdateUser } from './action/update_user';
@@ -22,7 +22,7 @@ export class UsersService {
     const user = await this.usersRepository.findOne(id);
 
     if (!user) {
-      throw new NotFoundError(ERR_USER_NOT_FOUND);
+      throw new NotFoundError(ErrorText.USER_NOT_FOUND);
     }
     return user;
   }
@@ -40,7 +40,7 @@ export class UsersService {
 
   validateUserId(id: string) {
     if (!uuid.validate(id)) {
-      throw new ValidationError(ERR_USERID_INVALID);
+      throw new ValidationError(ErrorText.USERID_INVALID);
     }
   }
 }
