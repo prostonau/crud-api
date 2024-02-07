@@ -38,7 +38,7 @@ export class UsersService {
   }
 
   validateUserId(id: string) {
-    if (this.usersRepository.users.filter((user) => user.id.toString() === id).length === 0) {
+    if (this.usersRepository.users.filter((user) => user.id === id).length === 0) {
       throw new ValidationError(ErrorText.USERID_INVALID);
     }
   }
